@@ -19,7 +19,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int pageNo = 1;
   List<String> list = <String>["relevancy", "popularity", "publishedAt"];
-  String sortBy = "popularity";
+  String sortBy = "relevancy";
   int currentIndex = 1;
 
   @override
@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(
                 context,
                 PageTransition(
+                  duration: Duration(milliseconds: 30),
                     type: PageTransitionType.rightToLeft,
                     child: SearchPage(),
                     inheritTheme: true,
