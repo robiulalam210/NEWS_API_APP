@@ -1,3 +1,4 @@
+import 'package:circle_progress_bar/circle_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -92,14 +93,19 @@ class _SearchPageState extends State<SearchPage> {
                   shrinkWrap: true,
                   itemCount: searchList!.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      leading:
-                          Image.network("${searchList[index].urlToImage}"),
-                      title: Text("${searchList[index].title}"),
-                      subtitle: Text(
-                        "${searchList[index].description}",
-                        style: GoogleFonts.lobster(
-                            fontSize: 14, color: Colors.black54),
+                    return CircleProgressBar(
+                      
+                      value: 0.5,
+                      foregroundColor: Colors.white,
+                      child: ListTile(
+                        leading:
+                            Image.network("${searchList[index].urlToImage}"),
+                        title: Text("${searchList[index].title}"),
+                        subtitle: Text(
+                          "${searchList[index].description}",
+                          style: GoogleFonts.lobster(
+                              fontSize: 14, color: Colors.black54),
+                        ),
                       ),
                     );
                   })

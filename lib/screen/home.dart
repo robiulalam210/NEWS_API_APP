@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:news_api/const.dart';
 import 'package:news_api/custom_service/http_custom.dart';
 import 'package:news_api/model/news_model.dart';
+import 'package:news_api/screen/detalis.dart';
 import 'package:news_api/screen/search_item.dart';
 import 'package:news_api/screen/tabs.dart';
 import 'package:page_transition/page_transition.dart';
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(
                 context,
                 PageTransition(
-                  duration: Duration(milliseconds: 30),
+                    duration: Duration(milliseconds: 30),
                     type: PageTransitionType.rightToLeft,
                     child: SearchPage(),
                     inheritTheme: true,
@@ -218,7 +219,8 @@ class _HomePageState extends State<HomePage> {
                         shrinkWrap: true,
                         itemBuilder: (context, index) => InkWell(
                               onTap: () {
-                                //Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewsDetailsScreen(snapshot.data![index])));
+                                // Navigator.of(context).push(MaterialPageRoute(
+                                //     builder: (context) => DetalisScreen(snapshot.data![index])));
                               },
                               child: Container(
                                 width: double.infinity,
@@ -226,8 +228,14 @@ class _HomePageState extends State<HomePage> {
                                     horizontal: 6, vertical: 5),
                                 margin: EdgeInsets.all(4),
                                 decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Colors.lightGreenAccent,
+                                      width: 3,
+                                      style: BorderStyle.solid),
                                   // color: Colors.lightGreen,
-                                  borderRadius: BorderRadius.circular(22),
+                                  borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(25),
+                                      bottomLeft: Radius.circular(25)),
                                 ),
                                 child: ListTile(
                                   title: Text(
