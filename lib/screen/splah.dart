@@ -18,7 +18,8 @@ class _SplahScrrenState extends State<SplahScrren> {
       seconds: 3,
       
     )).then((value){
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomePage()));
+      //Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomePage()));
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>HomePage()), (route) => false);
     });
   }
   @override
